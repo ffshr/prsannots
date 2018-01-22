@@ -56,7 +56,8 @@ def get_layouts(fd):
     
     parser = PDFParser(fd)
     doc = new_doc(parser)
-    doc.initialize()
+    if hasattr(doc, 'initialize'):
+        doc.initialize()
     
     laparams = LAParams()
     rsrcmgr = PDFResourceManager()
